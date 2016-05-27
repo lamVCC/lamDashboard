@@ -1,0 +1,13 @@
+/target
+.classpath
+.project
+.settings/
+target/
+bin/
+output/
+buildHistory/
+test-output/
+*.log
+*.exe
+*.DS_Store
+logs/rf-info.html

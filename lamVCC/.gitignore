@@ -1,0 +1,13 @@
+/target
+.classpath
+.project
+.settings/
+target/
+bin/
+output/
+test-output/
+*.png
+*.log
+*.exe
+*.DS_Store
+
