@@ -15,6 +15,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -46,6 +47,7 @@ public class LAMDasboardTest {
 		driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 	//	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		try{
+			((JavascriptExecutor)driver).executeScript("window.focus()");
 			driver.get("https://lamvcc.com/Sites/Tahoe/BI/_layouts/15/KPIDashboard/KPIDashboard.aspx#/tileview");
 			enterCredentialsInHTTPAuthentication("vcc\\ms1", "Gspann123+");
 		}catch(Exception e){
