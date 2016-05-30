@@ -43,7 +43,7 @@ public class LAMDasboardTest {
 		}
 
 		List<WebElement> allTiles= driver.findElements(By.xpath("//div[@class='ng-scope kpi-tiles']"));
-		Assert.assertTrue(allTiles.size()>0, "Tiles are not present on UI");		
+		Assert.assertTrue(allTiles.size()==12, "Tiles are not as expected on UI");		
 	}
 
 	@AfterMethod
