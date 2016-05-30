@@ -44,7 +44,7 @@ public class LAMDasboardTest {
 		System.setProperty("webdriver.ie.driver", driverPath);
 		driver = new InternetExplorerDriver(capabilities);
 		driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	//	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		try{
 			driver.get("https://lamvcc.com/Sites/Tahoe/BI/_layouts/15/KPIDashboard/KPIDashboard.aspx#/tileview");
 			enterCredentialsInHTTPAuthentication("vcc\\ms1", "Gspann123+");
@@ -53,9 +53,9 @@ public class LAMDasboardTest {
 			enterCredentialsInHTTPAuthentication("vcc\\ms1", "Gspann123+");  
 		}
 		waitForElementPresent(By.xpath("//section[@class='kpi-content-section']/div"));
-		WebDriverWait wait = new WebDriverWait(driver, 20);
+		WebDriverWait wait = new WebDriverWait(driver, 15);
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//section[@class='kpi-content-section']/div"))));
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		List<WebElement> allTiles= driver.findElements(By.xpath("//section[@class='kpi-content-section']/div"));
 		Assert.assertTrue(allTiles.size()==12, "Total no. of tiles present are not 12");  
 		
@@ -92,7 +92,7 @@ public class LAMDasboardTest {
 	}
 
 	public void waitForElementPresent(By by) throws InterruptedException{
-		for(int i=0;i<=20;i++){
+		for(int i=0;i<=10;i++){
 			try{
 				driver.findElement(by);
 				break;
