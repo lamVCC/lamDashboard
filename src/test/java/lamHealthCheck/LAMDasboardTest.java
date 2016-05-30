@@ -38,16 +38,15 @@ public class LAMDasboardTest {
 
 	@Test
 	public void testLoginFieldValidation() throws AWTException, InterruptedException {
-		driver=new FirefoxDriver();
-//		DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
-//		capabilities.setCapability(InternetExplorerDriver.
-//				INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true);
-//		System.setProperty("webdriver.ie.driver", driverPath);
+		//driver=new FirefoxDriver();
+		DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
+		capabilities.setCapability(InternetExplorerDriver.
+				INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true);
+		System.setProperty("webdriver.ie.driver", driverPath);
 		//capabilities.setCapability(InternetExplorerDriver.ENABLE_PERSISTENT_HOVERING,false);
-		//capabilities.setCapability(InternetExplorerDriver.REQUIRE_WINDOW_FOCUS, true);
+		capabilities.setCapability(InternetExplorerDriver.REQUIRE_WINDOW_FOCUS, true);
 //		capabilities.setCapability(InternetExplorerDriver.UNEXPECTED_ALERT_BEHAVIOR, true);
-		//driver = new InternetExplorerDriver(capabilities);
-		
+		driver = new InternetExplorerDriver(capabilities);
 		driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		Thread.sleep(2000);
