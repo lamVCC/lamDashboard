@@ -79,11 +79,11 @@ public class LAMDasboardTest {
 		Thread.sleep(2000);
 		Robot robot = new Robot();
 		
-//		robot.keyPress(KeyEvent.VK_WINDOWS);
-//		robot.keyPress(KeyEvent.VK_TAB);
-//		Thread.sleep(500);
-//		robot.keyRelease(KeyEvent.VK_TAB);
-//		robot.keyRelease(KeyEvent.VK_WINDOWS);
+		robot.keyPress(KeyEvent.VK_WINDOWS);
+		robot.keyPress(KeyEvent.VK_TAB);
+		Thread.sleep(500);
+		robot.keyRelease(KeyEvent.VK_TAB);
+		robot.keyRelease(KeyEvent.VK_WINDOWS);
 		StringSelection selec= new StringSelection(username);
 		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 		clipboard.setContents(selec, null);
