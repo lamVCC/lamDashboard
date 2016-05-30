@@ -65,7 +65,7 @@ public class LAMDasboardTest {
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//section[@class='kpi-content-section']/div"))));
 		Thread.sleep(2000);
 		List<WebElement> allTiles= driver.findElements(By.xpath("//section[@class='kpi-content-section']/div"));
-		Assert.assertTrue(allTiles.size()==12, "Total no. of tiles present are not 12");  
+		Assert.assertTrue(allTiles.size()==11, "Total no. of tiles present are not 12");  
 		
 	}
 
@@ -78,10 +78,10 @@ public class LAMDasboardTest {
 		Thread.sleep(2000);
 		Robot robot = new Robot();
 		//((JavascriptExecutor)driver).executeScript("window.focus()");
-		robot.keyPress(KeyEvent.VK_WINDOWS);
+		robot.keyPress(KeyEvent.VK_ALT);
 		robot.keyPress(KeyEvent.VK_TAB);
 		Thread.sleep(500);
-		robot.keyRelease(KeyEvent.VK_WINDOWS);
+		robot.keyRelease(KeyEvent.VK_ALT);
 		robot.keyRelease(KeyEvent.VK_TAB);
 
 		Thread.sleep(7000);
