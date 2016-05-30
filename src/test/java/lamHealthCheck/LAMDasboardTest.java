@@ -20,6 +20,10 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Listeners;
@@ -29,21 +33,31 @@ import org.testng.annotations.Test;
 public class LAMDasboardTest {
 
 	public static WebDriver driver;
+	static String driverPath = "src/driver/IEDriverServer.exe";
 
 	@Test
 	public void testLoginFieldValidation() throws AWTException, InterruptedException {
-		driver=new FirefoxDriver();
-		driver.manage().window().maximize();
+		//driver=new FirefoxDriver();
+		DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
+		capabilities.setCapability(InternetExplorerDriver.
+				INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true);
+		System.setProperty("webdriver.ie.driver", driverPath);
+		driver = new InternetExplorerDriver(capabilities);
 		driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		try{
 			driver.get("https://lamvcc.com/Sites/Tahoe/BI/_layouts/15/KPIDashboard/KPIDashboard.aspx#/tileview");
+			enterCredentialsInHTTPAuthentication("vcc\\ms1", "Gspann123+");
 		}catch(Exception e){
+			System.out.println("In catch");
 			enterCredentialsInHTTPAuthentication("vcc\\ms1", "Gspann123+");  
 		}
-
-		List<WebElement> allTiles= driver.findElements(By.xpath("//div[@class='ng-scope kpi-tiles']"));
-		Assert.assertTrue(allTiles.size()>0, "Tiles are not present on UI");		
+		waitForElementPresent(By.xpath("//section[@class='kpi-content-section']/div"));
+		WebDriverWait wait = new WebDriverWait(driver, 20);
+		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//section[@class='kpi-content-section']/div"))));
+		Thread.sleep(3000);
+		List<WebElement> allTiles= driver.findElements(By.xpath("//section[@class='kpi-content-section']/div"));
+		Assert.assertTrue(allTiles.size()==12, "Total no. of tiles present are not 12");  
 	}
 
 	@AfterMethod
@@ -85,7 +99,7 @@ public class LAMDasboardTest {
 				Thread.sleep(1000);
 				System.out.println("WAITING......");
 				continue;
-			}	
+			} 
 		}
 
 	}
