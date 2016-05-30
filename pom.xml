@@ -129,14 +129,8 @@
 							<value>org.uncommons.reportng.HTMLReporter</value>
 						</property>
 					</properties>
-					<systemPropertyVariables>
-						<testprops>${envproperties}</testprops>
-					</systemPropertyVariables>
 					<useFile>true</useFile>
 					<testFailureIgnore>true</testFailureIgnore>
-					<suiteXmlFiles>
-						<suiteXmlFile>src/test/resources/profiles/${suiteToRun}</suiteXmlFile>
-					</suiteXmlFiles>
 					<include>src/main/java</include>
 					<include>src/test/java</include>
 				</configuration>
