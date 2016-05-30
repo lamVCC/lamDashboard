@@ -77,7 +77,7 @@ public class LAMDasboardTest {
 	public void enterCredentialsInHTTPAuthentication(String username,String password) throws AWTException, InterruptedException{
 		Thread.sleep(2000);
 		Robot robot = new Robot();
-		
+		((JavascriptExecutor)driver).executeScript("window.focus()");
 //		for(int i=1;i<=5;i++){
 //			robot.keyPress(KeyEvent.VK_TAB);
 //			Thread.sleep(1000);
