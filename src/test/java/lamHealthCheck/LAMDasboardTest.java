@@ -52,7 +52,7 @@ public class LAMDasboardTest {
 		Thread.sleep(1000);
 		
 		try{
-			
+			((JavascriptExecutor)driver).executeScript("window.focus()");	
 			driver.get("https://lamvcc.com/Sites/Tahoe/BI/_layouts/15/KPIDashboard/KPIDashboard.aspx#/tileview");
 			enterCredentialsInHTTPAuthentication("vcc\\ms1", "Gspann123+");
 		}catch(Exception e){
