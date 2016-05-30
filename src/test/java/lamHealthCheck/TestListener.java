@@ -21,12 +21,12 @@ public class TestListener implements ITestListener{
 
 	@Override
 	public void onTestFailure(ITestResult result) {
-		try {
-			LAMDasboardTest.takeScreenshot(LAMDasboardTest.driver);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} 
+//		try {
+//			LAMDasboardTest.takeScreenshot(LAMDasboardTest.driver);
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} 
 
 	}
 
