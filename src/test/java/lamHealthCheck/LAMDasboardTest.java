@@ -84,7 +84,7 @@ public class LAMDasboardTest {
 //		}
 		StringSelection selec= new StringSelection(username);
 		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-		clipboard.setContents(selec, selec);
+		clipboard.setContents(selec, null);
 		
 		robot.keyPress(KeyEvent.VK_CONTROL);
 		robot.keyPress(KeyEvent.VK_V);
