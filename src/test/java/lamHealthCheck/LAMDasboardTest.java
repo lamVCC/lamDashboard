@@ -52,7 +52,7 @@ public class LAMDasboardTest {
 		Thread.sleep(1000);
 		
 		try{
-			//((JavascriptExecutor)driver).executeScript("window.focus()");
+			
 			driver.get("https://lamvcc.com/Sites/Tahoe/BI/_layouts/15/KPIDashboard/KPIDashboard.aspx#/tileview");
 			enterCredentialsInHTTPAuthentication("vcc\\ms1", "Gspann123+");
 		}catch(Exception e){
@@ -75,6 +75,7 @@ public class LAMDasboardTest {
 
 	public void enterCredentialsInHTTPAuthentication(String username,String password) throws AWTException, InterruptedException{
 		Thread.sleep(5000);
+		((JavascriptExecutor)driver).executeScript("window.focus()");
 		StringSelection selec= new StringSelection(username);
 		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 		clipboard.setContents(selec, selec);
