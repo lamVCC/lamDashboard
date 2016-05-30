@@ -43,11 +43,10 @@ public class LAMDasboardTest {
 		capabilities.setCapability(InternetExplorerDriver.
 				INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true);
 		System.setProperty("webdriver.ie.driver", driverPath);
-		//capabilities.setCapability(InternetExplorerDriver.ENABLE_PERSISTENT_HOVERING,false);
+		capabilities.setCapability(InternetExplorerDriver.ENABLE_PERSISTENT_HOVERING,false);
 		capabilities.setCapability(InternetExplorerDriver.REQUIRE_WINDOW_FOCUS, true);
-//		capabilities.setCapability(InternetExplorerDriver.UNEXPECTED_ALERT_BEHAVIOR, true);
 		driver = new InternetExplorerDriver(capabilities);
-		driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(2000, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		Thread.sleep(2000);
 		
@@ -55,11 +54,13 @@ public class LAMDasboardTest {
 			((JavascriptExecutor)driver).executeScript("window.focus()");
 			driver.get("https://lamvcc.com/Sites/Tahoe/BI/_layouts/15/KPIDashboard/KPIDashboard.aspx#/tileview");
 			Thread.sleep(3000);
+			//((JavascriptExecutor)driver).executeScript("window.focus()");
 			enterCredentialsInHTTPAuthentication("vcc\\ms1", "Gspann123+");
 		}catch(Exception e){
 			System.out.println("In catch");
 			enterCredentialsInHTTPAuthentication("vcc\\ms1", "Gspann123+");  
 		}
+		
 		Thread.sleep(5000);
 		waitForElementPresent(By.xpath("//section[@class='kpi-content-section']/div"));
 		WebDriverWait wait = new WebDriverWait(driver, 15);
@@ -69,7 +70,6 @@ public class LAMDasboardTest {
 		Assert.assertTrue(allTiles.size()==12, "Total no. of tiles present on UI are not 12");  
 		
 	}
-
 	@AfterMethod
 	public void afterTest(){
 		driver.quit();
@@ -78,12 +78,12 @@ public class LAMDasboardTest {
 	public void enterCredentialsInHTTPAuthentication(String username,String password) throws AWTException, InterruptedException{
 		Thread.sleep(2000);
 		Robot robot = new Robot();
-		//((JavascriptExecutor)driver).executeScript("window.focus()");
-		robot.keyPress(KeyEvent.VK_WINDOWS);
-		robot.keyPress(KeyEvent.VK_TAB);
-		Thread.sleep(500);
-		robot.keyRelease(KeyEvent.VK_TAB);
-		robot.keyRelease(KeyEvent.VK_WINDOWS);
+		
+//		robot.keyPress(KeyEvent.VK_WINDOWS);
+//		robot.keyPress(KeyEvent.VK_TAB);
+//		Thread.sleep(500);
+//		robot.keyRelease(KeyEvent.VK_TAB);
+//		robot.keyRelease(KeyEvent.VK_WINDOWS);
 		StringSelection selec= new StringSelection(username);
 		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 		clipboard.setContents(selec, null);
