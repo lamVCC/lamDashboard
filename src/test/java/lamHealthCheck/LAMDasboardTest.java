@@ -46,7 +46,7 @@ public class LAMDasboardTest {
 		capabilities.setCapability(InternetExplorerDriver.ENABLE_PERSISTENT_HOVERING,false);
 		capabilities.setCapability(InternetExplorerDriver.REQUIRE_WINDOW_FOCUS, true);
 		driver = new InternetExplorerDriver(capabilities);
-		driver.manage().timeouts().pageLoadTimeout(2000, TimeUnit.SECONDS);
+		//driver.manage().timeouts().pageLoadTimeout(2000, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		Thread.sleep(2000);
 		
