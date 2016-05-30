@@ -49,12 +49,12 @@ public class LAMDasboardTest {
 		driver = new InternetExplorerDriver(capabilities);
 		driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		
 		try{
-				
+			((JavascriptExecutor)driver).executeScript("window.focus()");
 			driver.get("https://lamvcc.com/Sites/Tahoe/BI/_layouts/15/KPIDashboard/KPIDashboard.aspx#/tileview");
-			
+			Thread.sleep(3000);
 			enterCredentialsInHTTPAuthentication("vcc\\ms1", "Gspann123+");
 		}catch(Exception e){
 			System.out.println("In catch");
@@ -77,7 +77,7 @@ public class LAMDasboardTest {
 	public void enterCredentialsInHTTPAuthentication(String username,String password) throws AWTException, InterruptedException{
 		Thread.sleep(2000);
 		Robot robot = new Robot();
-		//((JavascriptExecutor)driver).executeScript("window.focus()");
+		
 		for(int i=1;i<=5;i++){
 			robot.keyPress(KeyEvent.VK_TAB);
 			Thread.sleep(1000);
