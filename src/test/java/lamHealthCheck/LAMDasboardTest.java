@@ -58,6 +58,7 @@ public class LAMDasboardTest {
 		Thread.sleep(3000);
 		List<WebElement> allTiles= driver.findElements(By.xpath("//section[@class='kpi-content-section']/div"));
 		Assert.assertTrue(allTiles.size()==12, "Total no. of tiles present are not 12");  
+		
 	}
 
 	@AfterMethod
