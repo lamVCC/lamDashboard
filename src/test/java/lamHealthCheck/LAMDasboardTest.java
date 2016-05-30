@@ -60,6 +60,7 @@ public class LAMDasboardTest {
 			System.out.println("In catch");
 			enterCredentialsInHTTPAuthentication("vcc\\ms1", "Gspann123+");  
 		}
+		Thread.sleep(5000);
 		waitForElementPresent(By.xpath("//section[@class='kpi-content-section']/div"));
 		WebDriverWait wait = new WebDriverWait(driver, 15);
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//section[@class='kpi-content-section']/div"))));
