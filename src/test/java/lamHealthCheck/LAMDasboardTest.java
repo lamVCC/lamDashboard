@@ -75,7 +75,7 @@ public class LAMDasboardTest {
 
 	public void enterCredentialsInHTTPAuthentication(String username,String password) throws AWTException, InterruptedException{
 		Thread.sleep(5000);
-		((JavascriptExecutor)driver).executeScript("window.focus()");
+		//((JavascriptExecutor)driver).executeScript("window.focus()");
 		StringSelection selec= new StringSelection(username);
 		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 		clipboard.setContents(selec, selec);
