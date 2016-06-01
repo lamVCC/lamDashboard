@@ -52,7 +52,7 @@ public class LAMDasboardTest {
 		
 		try{
 			((JavascriptExecutor)driver).executeScript("window.focus()");
-			driver.get("https://lamvcc.com/sites/whitney/L2App/_layouts/15/vcclam.l2app/l2inputform.aspx");
+			driver.get("https://lamvcc.com/sites/Tahoe/BI/_layouts/15/VccLam.L2Dashboard/SuccessCriteriaDashboard.aspx");
 			Thread.sleep(3000);
 			//((JavascriptExecutor)driver).executeScript("window.focus()");
 			enterCredentialsInHTTPAuthentication("vcc\\ms1", "Gspann123+");
@@ -62,18 +62,13 @@ public class LAMDasboardTest {
 		}
 		
 		Thread.sleep(5000);
-		waitForElementPresent(By.xpath("//div[@id='success-criteria-form']//footer/div[@class='foot-buttons']"));
+		waitForElementPresent(By.xpath("//div[@class='row-head row-head-ipad']"));
 		WebDriverWait wait = new WebDriverWait(driver, 15);
-		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[@id='success-criteria-form']//footer/div[@class='foot-buttons']"))));
+		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[@class='row-head row-head-ipad']"))));
 		Thread.sleep(2000);
-		List<WebElement> allButtons= driver.findElements(By.xpath("//div[@id='success-criteria-form']//footer/div[@class='foot-buttons']"));
-		Assert.assertTrue(allButtons.size()>0, "No buttons are currently present in UI");  
+		List<WebElement> allButtons= driver.findElements(By.xpath("//div[@class='row-head row-head-ipad']"));
+		Assert.assertTrue(allButtons.size()>0, "All the sections are not present");  
 		
-		waitForElementPresent(By.xpath("//div[@class='criteria-header']//div"));
-		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[@class='criteria-header']//div"))));
-		Thread.sleep(2000);
-		List<WebElement> allHeaderText= driver.findElements(By.xpath("//div[@class='criteria-header']//div"));
-		Assert.assertTrue(allHeaderText.size()>2, "No Header Text(s) currently present in UI");  
 	}
 	@AfterMethod
 	public void afterTest(){
