@@ -67,7 +67,7 @@ public class LAMDasboardTest {
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[@class='row-head row-head-ipad']"))));
 		Thread.sleep(2000);
 		List<WebElement> allButtons= driver.findElements(By.xpath("//div[@class='row-head row-head-ipad']"));
-		Assert.assertFalse(allButtons.size()>0, "All the sections are not present");  
+		Assert.assertTrue(allButtons.size()>0, "All the sections are not present");  
 		
 	}
 	@AfterMethod
