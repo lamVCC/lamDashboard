@@ -86,7 +86,7 @@ public class LAMDasboardTest {
 		
 		robot.keyPress(KeyEvent.VK_WINDOWS);
 		robot.keyPress(KeyEvent.VK_TAB);
-		Thread.sleep(200);
+		Thread.sleep(100);
 		robot.keyRelease(KeyEvent.VK_TAB);
 		robot.keyRelease(KeyEvent.VK_WINDOWS);
 		StringSelection selec= new StringSelection(username);
