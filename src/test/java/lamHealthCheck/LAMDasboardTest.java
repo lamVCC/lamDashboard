@@ -84,22 +84,23 @@ public class LAMDasboardTest {
 		Thread.sleep(2000);
 		Robot robot = new Robot();
 		
-		int count=0;
-		for(int i=count;i<100000;i++){
-			
-		}
-		
 		robot.keyPress(KeyEvent.VK_WINDOWS);
 		robot.keyPress(KeyEvent.VK_D);
 		Thread.sleep(100);
 		robot.keyRelease(KeyEvent.VK_WINDOWS);
 		robot.keyRelease(KeyEvent.VK_D);
-		Thread.sleep(30);
+		Thread.sleep(100);
 		robot.keyPress(KeyEvent.VK_WINDOWS);
 		robot.keyPress(KeyEvent.VK_TAB);
 		Thread.sleep(100);
 		robot.keyRelease(KeyEvent.VK_TAB);
 		robot.keyRelease(KeyEvent.VK_WINDOWS);
+		Thread.sleep(100);
+		robot.keyPress(KeyEvent.VK_ALT);
+		robot.keyPress(KeyEvent.VK_TAB);
+		Thread.sleep(100);
+		robot.keyRelease(KeyEvent.VK_ALT);
+		robot.keyRelease(KeyEvent.VK_TAB);
 		
 		
 		StringSelection selec= new StringSelection(username);
