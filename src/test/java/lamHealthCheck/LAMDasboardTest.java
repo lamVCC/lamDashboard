@@ -22,6 +22,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -52,8 +54,8 @@ public class LAMDasboardTest {
 		
 		try{
 			((JavascriptExecutor)driver).executeScript("window.focus()");
-			driver.get("https://lamvcc.com/sites/whitney/L2App/_layouts/15/vcclam.l2app/l2inputform.aspx");
-			Thread.sleep(3000);
+			driver.get("https://qs.lamvcc.com/sense/app/ff19a7dc-a97d-400a-92a7-0a0f44f51bf7/sheet/34e74f8b-0837-4c19-b4f6-b0434938ea85/state/analysis");
+				Thread.sleep(3000);
 			//((JavascriptExecutor)driver).executeScript("window.focus()");
 			enterCredentialsInHTTPAuthentication("vcc\\ms1", "Gspann123+");
 		}catch(Exception e){
@@ -61,23 +63,28 @@ public class LAMDasboardTest {
 			enterCredentialsInHTTPAuthentication("vcc\\ms1", "Gspann123+");  
 		}
 		
-		Thread.sleep(5000);
-		waitForElementPresent(By.xpath("//div[@id='success-criteria-form']//footer/div[@class='foot-buttons']"));
+		Thread.sleep(7000);
+		//wait for header element 'Opportunities to Improve'
+		waitForElementPresent(By.xpath("//span[contains(text(),'Opportunities to Improve')]"));
 		WebDriverWait wait = new WebDriverWait(driver, 15);
-		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[@id='success-criteria-form']//footer/div[@class='foot-buttons']"))));
-		Thread.sleep(2000);
-		List<WebElement> allButtons= driver.findElements(By.xpath("//div[@id='success-criteria-form']//footer/div[@class='foot-buttons']"));
-		Assert.assertTrue(allButtons.size()>0, "No buttons are currently present in UI");  
+		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//span[contains(text(),'Opportunities to Improve')]"))));
+		Thread.sleep(3500);
+		List<WebElement> headerText= driver.findElements(By.xpath("//span[contains(text(),'Opportunities to Improve')]"));
+		Assert.assertTrue(headerText.size()>0, "Header Text is not present");  
 		
-		waitForElementPresent(By.xpath("//div[@class='criteria-header']//div"));
-		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[@class='criteria-header']//div"))));
-		Thread.sleep(2000);
-		List<WebElement> allHeaderText= driver.findElements(By.xpath("//div[@class='criteria-header']//div"));
-		Assert.assertTrue(allHeaderText.size()>2, "No Header Text(s) currently present in UI");  
+		//wait for 'Top Opportunities to improve over Last 3 Qvcc\ms1	Gspann123+uarters'
+		waitForElementPresent(By.xpath("//span[contains(text(),'Top Opportunities to improve over Last 3 Quarters')]"));
+	
+		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//span[contains(text(),'Top Opportunities to improve over Last 3 Quarters')]"))));
+		Thread.sleep(3500);
+		List<WebElement> topOpportunitiesText= driver.findElements(By.xpath("//span[contains(text(),'Top Opportunities to improve over Last 3 Quarters')]"));
+		Assert.assertTrue(topOpportunitiesText.size()>0, "Top Opportunities Text is not present");  
+		
 	}
 	@AfterMethod
 	public void afterTest(){
 		driver.quit();
+		
 	}
 
 	public void enterCredentialsInHTTPAuthentication(String username,String password) throws AWTException, InterruptedException{
@@ -85,28 +92,14 @@ public class LAMDasboardTest {
 		Robot robot = new Robot();
 		
 		robot.keyPress(KeyEvent.VK_WINDOWS);
-		robot.keyPress(KeyEvent.VK_D);
-		Thread.sleep(100);
-		robot.keyRelease(KeyEvent.VK_WINDOWS);
-		robot.keyRelease(KeyEvent.VK_D);
-		Thread.sleep(100);
-		robot.keyPress(KeyEvent.VK_WINDOWS);
 		robot.keyPress(KeyEvent.VK_TAB);
 		Thread.sleep(100);
 		robot.keyRelease(KeyEvent.VK_TAB);
 		robot.keyRelease(KeyEvent.VK_WINDOWS);
-		Thread.sleep(100);
-		robot.keyPress(KeyEvent.VK_ALT);
-		robot.keyPress(KeyEvent.VK_TAB);
-		Thread.sleep(100);
-		robot.keyRelease(KeyEvent.VK_ALT);
-		robot.keyRelease(KeyEvent.VK_TAB);
-		
-		
 		StringSelection selec= new StringSelection(username);
 		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 		clipboard.setContents(selec, null);
-		Thread.sleep(5000);		
+		Thread.sleep(7000);		
 		robot.keyPress(KeyEvent.VK_CONTROL);
 		robot.keyPress(KeyEvent.VK_V);
 		Thread.sleep(1000);
