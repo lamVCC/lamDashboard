@@ -93,10 +93,10 @@ public class LAMDasboardTest {
 		while(true){
 			try{
 				robot.keyPress(KeyEvent.VK_WINDOWS);
-				robot.keyPress(KeyEvent.VK_TAB);
+				robot.keyPress(KeyEvent.VK_M);
 				Thread.sleep(500);
 				robot.keyRelease(KeyEvent.VK_TAB);
-				robot.keyRelease(KeyEvent.VK_WINDOWS);
+				robot.keyRelease(KeyEvent.VK_M);
 				
 				StringSelection selec= new StringSelection(username);
 				Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
