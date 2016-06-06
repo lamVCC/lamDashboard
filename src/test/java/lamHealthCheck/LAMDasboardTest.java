@@ -86,49 +86,49 @@ public class LAMDasboardTest {
 		
 		robot.keyPress(KeyEvent.VK_WINDOWS);
 		robot.keyPress(KeyEvent.VK_D);
-		Thread.sleep(100);
+		Thread.sleep(500);
 		robot.keyRelease(KeyEvent.VK_WINDOWS);
 		robot.keyRelease(KeyEvent.VK_D);
-		Thread.sleep(100);
-		robot.keyPress(KeyEvent.VK_WINDOWS);
-		robot.keyPress(KeyEvent.VK_TAB);
-		Thread.sleep(100);
-		robot.keyRelease(KeyEvent.VK_TAB);
-		robot.keyRelease(KeyEvent.VK_WINDOWS);
-		Thread.sleep(100);
-		robot.keyPress(KeyEvent.VK_ALT);
-		robot.keyPress(KeyEvent.VK_TAB);
-		Thread.sleep(100);
-		robot.keyRelease(KeyEvent.VK_ALT);
-		robot.keyRelease(KeyEvent.VK_TAB);
-		
-		
-		StringSelection selec= new StringSelection(username);
-		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-		clipboard.setContents(selec, null);
-		Thread.sleep(5000);		
-		robot.keyPress(KeyEvent.VK_CONTROL);
-		robot.keyPress(KeyEvent.VK_V);
-		Thread.sleep(1000);
-		robot.keyRelease(KeyEvent.VK_V);
-		robot.keyRelease(KeyEvent.VK_CONTROL);
-		robot.keyPress(KeyEvent.VK_TAB);
-		robot.keyRelease(KeyEvent.VK_TAB);
-		Thread.sleep(1000);
-		selec= new StringSelection(password);
-		clipboard.setContents(selec, null);
-		robot.keyPress(KeyEvent.VK_CONTROL);
-		robot.keyPress(KeyEvent.VK_V);
-		Thread.sleep(1000);
-		robot.keyRelease(KeyEvent.VK_V);
-		robot.keyRelease(KeyEvent.VK_CONTROL);
-		robot.keyPress(KeyEvent.VK_TAB);
-		robot.keyRelease(KeyEvent.VK_TAB);
-		Thread.sleep(1000);
-		robot.keyPress(KeyEvent.VK_ENTER);
-		robot.keyRelease(KeyEvent.VK_ENTER);
-		Thread.sleep(3000);
-	}
+		Thread.sleep(500);
+		while(true){
+			try{
+				robot.keyPress(KeyEvent.VK_WINDOWS);
+				robot.keyPress(KeyEvent.VK_TAB);
+				Thread.sleep(500);
+				robot.keyRelease(KeyEvent.VK_TAB);
+				robot.keyRelease(KeyEvent.VK_WINDOWS);
+				
+				StringSelection selec= new StringSelection(username);
+				Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+				clipboard.setContents(selec, null);
+				Thread.sleep(5000);		
+				robot.keyPress(KeyEvent.VK_CONTROL);
+				robot.keyPress(KeyEvent.VK_V);
+				Thread.sleep(1000);
+				robot.keyRelease(KeyEvent.VK_V);
+				robot.keyRelease(KeyEvent.VK_CONTROL);
+				robot.keyPress(KeyEvent.VK_TAB);
+				robot.keyRelease(KeyEvent.VK_TAB);
+				Thread.sleep(1000);
+				selec= new StringSelection(password);
+				clipboard.setContents(selec, null);
+				robot.keyPress(KeyEvent.VK_CONTROL);
+				robot.keyPress(KeyEvent.VK_V);
+				Thread.sleep(1000);
+				robot.keyRelease(KeyEvent.VK_V);
+				robot.keyRelease(KeyEvent.VK_CONTROL);
+				robot.keyPress(KeyEvent.VK_TAB);
+				robot.keyRelease(KeyEvent.VK_TAB);
+				Thread.sleep(1000);
+				robot.keyPress(KeyEvent.VK_ENTER);
+				robot.keyRelease(KeyEvent.VK_ENTER);
+				Thread.sleep(3000);
+				break;
+			}catch(Exception e){
+				continue;
+			}
+		}
+		}
 
 	public void waitForElementPresent(By by) throws InterruptedException{
 		for(int i=0;i<=10;i++){
