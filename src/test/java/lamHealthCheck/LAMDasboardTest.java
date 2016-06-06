@@ -27,6 +27,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -36,6 +37,16 @@ public class LAMDasboardTest {
 	public static WebDriver driver;
 	static String driverPath = "src/driver/IEDriverServer.exe";
 
+	@BeforeMethod
+	public void launchJenkins() {
+		  String command = "java -jar jenkins.war"; 
+		  try {
+		   Process result = Runtime.getRuntime().exec(command);
+		  } catch (IOException e) {
+		   e.printStackTrace();
+		  }
+		 }
+	
 	@Test
 	public void testLoginFieldValidation() throws AWTException, InterruptedException {
 		//driver=new FirefoxDriver();
