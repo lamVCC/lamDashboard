@@ -78,18 +78,13 @@ public class LAMDasboardTest {
 	public void enterCredentialsInHTTPAuthentication(String username,String password) throws AWTException, InterruptedException{
 		Thread.sleep(2000);
 		Robot robot = new Robot();
-		
+		Thread.sleep(1500);
 		robot.keyPress(KeyEvent.VK_WINDOWS);
 		robot.keyPress(KeyEvent.VK_M);
 		Thread.sleep(100);
 		robot.keyRelease(KeyEvent.VK_WINDOWS);
 		robot.keyRelease(KeyEvent.VK_M);
-		Thread.sleep(100);
-		robot.keyPress(KeyEvent.VK_WINDOWS);
-		robot.keyPress(KeyEvent.VK_M);
-		Thread.sleep(100);
-		robot.keyRelease(KeyEvent.VK_WINDOWS);
-		robot.keyRelease(KeyEvent.VK_M);
+		Thread.sleep(500);
 		robot.keyPress(KeyEvent.VK_WINDOWS);
 		robot.keyPress(KeyEvent.VK_TAB);
 		Thread.sleep(100);
