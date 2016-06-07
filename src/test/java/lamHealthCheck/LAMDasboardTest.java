@@ -75,7 +75,7 @@ public class LAMDasboardTest {
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//span[contains(text(),'FAs Open - Aging')]"))));
 		Thread.sleep(3000);
 		List<WebElement> FAsOpenText= driver.findElements(By.xpath("//span[contains(text(),'FAs Open - Aging')]"));
-		Assert.assertTrue(FAsOpenText.size()>0, "'FAs Open - Aging' is not displayed on page");  
+		Assert.assertFalse(FAsOpenText.size()>0, "'FAs Open - Aging' is not displayed on page");  
 	}
 	@AfterMethod
 	public void afterTest(){
