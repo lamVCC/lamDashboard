@@ -49,7 +49,7 @@ public class LAMDasboardTest {
 		//driver.manage().timeouts().pageLoadTimeout(2000, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		Thread.sleep(2000);
-		
+
 		try{
 			((JavascriptExecutor)driver).executeScript("window.focus()");
 			driver.get("https://lamvcc.com/sites/Tahoe/BI/_layouts/15/VccLam.L2Dashboard/SuccessCriteriaDashboard.aspx");
@@ -60,7 +60,7 @@ public class LAMDasboardTest {
 			System.out.println("In catch");
 			enterCredentialsInHTTPAuthentication("vcc\\ms1", "Gspann123+");  
 		}
-		
+
 		Thread.sleep(5000);
 		waitForElementPresent(By.xpath("//div[@class='row-head row-head-ipad']"));
 		WebDriverWait wait = new WebDriverWait(driver, 15);
@@ -68,7 +68,7 @@ public class LAMDasboardTest {
 		Thread.sleep(3000);
 		List<WebElement> allButtons= driver.findElements(By.xpath("//div[@class='row-head row-head-ipad']"));
 		Assert.assertTrue(allButtons.size()>0, "All the sections are not present");  
-		
+
 	}
 	@AfterMethod
 	public void afterTest(){
@@ -78,19 +78,19 @@ public class LAMDasboardTest {
 	public void enterCredentialsInHTTPAuthentication(String username,String password) throws AWTException, InterruptedException{
 		Thread.sleep(2000);
 		Robot robot = new Robot();
-		
+		Thread.sleep(1000);
 		robot.keyPress(KeyEvent.VK_WINDOWS);
-		robot.keyPress(KeyEvent.VK_D);
-		Thread.sleep(100);
+		robot.keyPress(KeyEvent.VK_M);
+		Thread.sleep(300);
 		robot.keyRelease(KeyEvent.VK_WINDOWS);
-		robot.keyRelease(KeyEvent.VK_D);
-		Thread.sleep(100);
+		robot.keyRelease(KeyEvent.VK_M);
+		Thread.sleep(300);
 		robot.keyPress(KeyEvent.VK_WINDOWS);
-		robot.keyPress(KeyEvent.VK_TAB);
-		Thread.sleep(100);
-		robot.keyRelease(KeyEvent.VK_TAB);
+		robot.keyPress(KeyEvent.VK_1);
+		Thread.sleep(300);
 		robot.keyRelease(KeyEvent.VK_WINDOWS);
-		
+		robot.keyRelease(KeyEvent.VK_1);
+
 		StringSelection selec= new StringSelection(username);
 		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 		clipboard.setContents(selec, null);
@@ -132,12 +132,12 @@ public class LAMDasboardTest {
 
 	}
 
-//	public static void takeScreenshot(WebDriver driver) throws IOException{
-//		System.out.println("Taking screenshot");
-//		File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-//		String fileName = "LAM_AUTOMATION_"+getDateTime();
-//		FileUtils.copyFile(file, new File(System.getProperty("user.dir")+"/"+fileName+".png"));
-//	}
+	//	public static void takeScreenshot(WebDriver driver) throws IOException{
+	//		System.out.println("Taking screenshot");
+	//		File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+	//		String fileName = "LAM_AUTOMATION_"+getDateTime();
+	//		FileUtils.copyFile(file, new File(System.getProperty("user.dir")+"/"+fileName+".png"));
+	//	}
 
 	/**
 	 * Returns current Date Time
