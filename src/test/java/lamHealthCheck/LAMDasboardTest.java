@@ -68,14 +68,14 @@ public class LAMDasboardTest {
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//span[contains(text(),'Cycle time and Aging – Page 1/4')]"))));
 		Thread.sleep(3000);
 		List<WebElement> headerText= driver.findElements(By.xpath("//span[contains(text(),'Cycle time and Aging – Page 1/4')]"));
-		Assert.assertFalse(headerText.size()>0, "'Cycle time and Aging – Page 1/4' is not displayed on page");  
+		Assert.assertTrue(headerText.size()>0, "'Cycle time and Aging – Page 1/4' is not displayed on page");  
 		
 		//validate FAs Open -Aging
 		waitForElementPresent(By.xpath("//span[contains(text(),'FAs Open - Aging')]"));
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//span[contains(text(),'FAs Open - Aging')]"))));
 		Thread.sleep(3000);
 		List<WebElement> FAsOpenText= driver.findElements(By.xpath("//span[contains(text(),'FAs Open - Aging')]"));
-		Assert.assertFalse(FAsOpenText.size()>0, "'FAs Open - Aging' is not displayed on page");  
+		Assert.assertTrue(FAsOpenText.size()>0, "'FAs Open - Aging' is not displayed on page");  
 	}
 	@AfterMethod
 	public void afterTest(){
