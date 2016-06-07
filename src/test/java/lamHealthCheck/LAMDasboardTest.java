@@ -81,13 +81,19 @@ public class LAMDasboardTest {
 		Thread.sleep(1000);
 		robot.keyPress(KeyEvent.VK_WINDOWS);
 		robot.keyPress(KeyEvent.VK_M);
-		Thread.sleep(500);
+		Thread.sleep(300);
 		robot.keyRelease(KeyEvent.VK_WINDOWS);
 		robot.keyRelease(KeyEvent.VK_M);
-		Thread.sleep(1500);
+		Thread.sleep(300);
 		robot.keyPress(KeyEvent.VK_WINDOWS);
 		robot.keyPress(KeyEvent.VK_SPACE);
-		Thread.sleep(500);
+		Thread.sleep(300);
+		robot.keyRelease(KeyEvent.VK_WINDOWS);
+		robot.keyRelease(KeyEvent.VK_SPACE);
+		Thread.sleep(300);
+		robot.keyPress(KeyEvent.VK_WINDOWS);
+		robot.keyPress(KeyEvent.VK_SPACE);
+		Thread.sleep(300);
 		robot.keyRelease(KeyEvent.VK_WINDOWS);
 		robot.keyRelease(KeyEvent.VK_SPACE);
 		
