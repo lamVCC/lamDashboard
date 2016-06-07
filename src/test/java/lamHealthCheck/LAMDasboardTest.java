@@ -39,14 +39,14 @@ public class LAMDasboardTest {
 
 	@BeforeMethod
 	public void launchJenkins() {
-		  String command = "java -jar jenkins.war"; 
-		  try {
-		   Process result = Runtime.getRuntime().exec(command);
-		  } catch (IOException e) {
-		   e.printStackTrace();
-		  }
-		 }
-	
+		String command = "java -jar jenkins.war"; 
+		try {
+			Process result = Runtime.getRuntime().exec(command);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
 	@Test
 	public void testLoginFieldValidation() throws AWTException, InterruptedException {
 		//driver=new FirefoxDriver();
@@ -60,7 +60,7 @@ public class LAMDasboardTest {
 		//driver.manage().timeouts().pageLoadTimeout(2000, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		Thread.sleep(2000);
-		
+
 		try{
 			((JavascriptExecutor)driver).executeScript("window.focus()");
 			driver.get("https://lamvcc.com/sites/whitney/L2App/_layouts/15/vcclam.l2app/l2inputform.aspx");
@@ -71,7 +71,7 @@ public class LAMDasboardTest {
 			System.out.println("In catch");
 			enterCredentialsInHTTPAuthentication("vcc\\ms1", "Gspann123+");  
 		}
-		
+
 		Thread.sleep(5000);
 		waitForElementPresent(By.xpath("//div[@id='success-criteria-form']//footer/div[@class='foot-buttons']"));
 		WebDriverWait wait = new WebDriverWait(driver, 15);
@@ -79,7 +79,7 @@ public class LAMDasboardTest {
 		Thread.sleep(2000);
 		List<WebElement> allButtons= driver.findElements(By.xpath("//div[@id='success-criteria-form']//footer/div[@class='foot-buttons']"));
 		Assert.assertTrue(allButtons.size()>0, "No buttons are currently present in UI");  
-		
+
 		waitForElementPresent(By.xpath("//div[@class='criteria-header']//div"));
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[@class='criteria-header']//div"))));
 		Thread.sleep(2000);
@@ -94,52 +94,45 @@ public class LAMDasboardTest {
 	public void enterCredentialsInHTTPAuthentication(String username,String password) throws AWTException, InterruptedException{
 		Thread.sleep(2000);
 		Robot robot = new Robot();
-		
+		Thread.sleep(1000);
 		robot.keyPress(KeyEvent.VK_WINDOWS);
-		robot.keyPress(KeyEvent.VK_D);
-		Thread.sleep(500);
+		robot.keyPress(KeyEvent.VK_M);
+		Thread.sleep(300);
 		robot.keyRelease(KeyEvent.VK_WINDOWS);
-		robot.keyRelease(KeyEvent.VK_D);
-		Thread.sleep(500);
-		while(true){
-			try{
-				robot.keyPress(KeyEvent.VK_WINDOWS);
-				robot.keyPress(KeyEvent.VK_M);
-				Thread.sleep(500);
-				robot.keyRelease(KeyEvent.VK_TAB);
-				robot.keyRelease(KeyEvent.VK_M);
-				
-				StringSelection selec= new StringSelection(username);
-				Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-				clipboard.setContents(selec, null);
-				Thread.sleep(16000);		
-				robot.keyPress(KeyEvent.VK_CONTROL);
-				robot.keyPress(KeyEvent.VK_V);
-				Thread.sleep(1000);
-				robot.keyRelease(KeyEvent.VK_V);
-				robot.keyRelease(KeyEvent.VK_CONTROL);
-				robot.keyPress(KeyEvent.VK_TAB);
-				robot.keyRelease(KeyEvent.VK_TAB);
-				Thread.sleep(1000);
-				selec= new StringSelection(password);
-				clipboard.setContents(selec, null);
-				robot.keyPress(KeyEvent.VK_CONTROL);
-				robot.keyPress(KeyEvent.VK_V);
-				Thread.sleep(1000);
-				robot.keyRelease(KeyEvent.VK_V);
-				robot.keyRelease(KeyEvent.VK_CONTROL);
-				robot.keyPress(KeyEvent.VK_TAB);
-				robot.keyRelease(KeyEvent.VK_TAB);
-				Thread.sleep(1000);
-				robot.keyPress(KeyEvent.VK_ENTER);
-				robot.keyRelease(KeyEvent.VK_ENTER);
-				Thread.sleep(3000);
-				break;
-			}catch(Exception e){
-				continue;
-			}
-		}
-		}
+		robot.keyRelease(KeyEvent.VK_M);
+		Thread.sleep(300);
+		robot.keyPress(KeyEvent.VK_WINDOWS);
+		robot.keyPress(KeyEvent.VK_1);
+		Thread.sleep(300);
+		robot.keyRelease(KeyEvent.VK_WINDOWS);
+		robot.keyRelease(KeyEvent.VK_1);
+
+		StringSelection selec= new StringSelection(username);
+		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+		clipboard.setContents(selec, null);
+		Thread.sleep(7000);		
+		robot.keyPress(KeyEvent.VK_CONTROL);
+		robot.keyPress(KeyEvent.VK_V);
+		Thread.sleep(1000);
+		robot.keyRelease(KeyEvent.VK_V);
+		robot.keyRelease(KeyEvent.VK_CONTROL);
+		robot.keyPress(KeyEvent.VK_TAB);
+		robot.keyRelease(KeyEvent.VK_TAB);
+		Thread.sleep(1000);
+		selec= new StringSelection(password);
+		clipboard.setContents(selec, null);
+		robot.keyPress(KeyEvent.VK_CONTROL);
+		robot.keyPress(KeyEvent.VK_V);
+		Thread.sleep(1000);
+		robot.keyRelease(KeyEvent.VK_V);
+		robot.keyRelease(KeyEvent.VK_CONTROL);
+		robot.keyPress(KeyEvent.VK_TAB);
+		robot.keyRelease(KeyEvent.VK_TAB);
+		Thread.sleep(1000);
+		robot.keyPress(KeyEvent.VK_ENTER);
+		robot.keyRelease(KeyEvent.VK_ENTER);
+		Thread.sleep(3000);
+	}
 
 	public void waitForElementPresent(By by) throws InterruptedException{
 		for(int i=0;i<=10;i++){
@@ -155,12 +148,12 @@ public class LAMDasboardTest {
 
 	}
 
-//	public static void takeScreenshot(WebDriver driver) throws IOException{
-//		System.out.println("Taking screenshot");
-//		File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-//		String fileName = "LAM_AUTOMATION_"+getDateTime();
-//		FileUtils.copyFile(file, new File(System.getProperty("user.dir")+"/"+fileName+".png"));
-//	}
+	//	public static void takeScreenshot(WebDriver driver) throws IOException{
+	//		System.out.println("Taking screenshot");
+	//		File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+	//		String fileName = "LAM_AUTOMATION_"+getDateTime();
+	//		FileUtils.copyFile(file, new File(System.getProperty("user.dir")+"/"+fileName+".png"));
+	//	}
 
 	/**
 	 * Returns current Date Time
