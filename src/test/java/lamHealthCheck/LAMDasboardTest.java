@@ -52,7 +52,7 @@ public class LAMDasboardTest {
 
 		try{
 			((JavascriptExecutor)driver).executeScript("window.focus()");
-			driver.get("https://lamvcc.com/sites/Tahoe/BI/_layouts/15/VccLam.L2Dashboard/SuccessCriteriaDashboard.aspx");
+			driver.get("https://qs.lamvcc.com/sense/app/08fddbfb-b99b-4d29-bb42-00b0c749035b/sheet/pmeC/state/analysis");
 			Thread.sleep(3000);
 			//((JavascriptExecutor)driver).executeScript("window.focus()");
 			enterCredentialsInHTTPAuthentication("vcc\\ms1", "Gspann123+");
@@ -62,13 +62,20 @@ public class LAMDasboardTest {
 		}
 
 		Thread.sleep(5000);
-		waitForElementPresent(By.xpath("//div[@class='row-head row-head-ipad']"));
+		//validate 'Cycle time and Aging'-
+		waitForElementPresent(By.xpath("//span[contains(text(),'Cycle time and Aging – Page 1/4')]"));
 		WebDriverWait wait = new WebDriverWait(driver, 15);
-		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[@class='row-head row-head-ipad']"))));
+		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//span[contains(text(),'Cycle time and Aging – Page 1/4')]"))));
 		Thread.sleep(3000);
-		List<WebElement> allButtons= driver.findElements(By.xpath("//div[@class='row-head row-head-ipad']"));
-		Assert.assertTrue(allButtons.size()>0, "All the sections are not present");  
-
+		List<WebElement> headerText= driver.findElements(By.xpath("//span[contains(text(),'Cycle time and Aging – Page 1/4')]"));
+		Assert.assertTrue(headerText.size()>0, "'Cycle time and Aging – Page 1/4' is not displayed on page");  
+		
+		//validate FAs Open -Aging
+		waitForElementPresent(By.xpath("//span[contains(text(),'FAs Open - Aging')]"));
+		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//span[contains(text(),'FAs Open - Aging')]"))));
+		Thread.sleep(3000);
+		List<WebElement> FAsOpenText= driver.findElements(By.xpath("//span[contains(text(),'FAs Open - Aging')]"));
+		Assert.assertTrue(FAsOpenText.size()>0, "'FAs Open - Aging' is not displayed on page");  
 	}
 	@AfterMethod
 	public void afterTest(){
