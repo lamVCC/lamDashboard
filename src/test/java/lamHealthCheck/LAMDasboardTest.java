@@ -68,7 +68,7 @@ public class LAMDasboardTest {
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//span[contains(text(),'Cycle time and Aging – Page 1/4')]"))));
 		Thread.sleep(3000);
 		List<WebElement> headerText= driver.findElements(By.xpath("//span[contains(text(),'Cycle time and Aging – Page 1/4')]"));
-		Assert.assertTrue(headerText.size()>0, "'Cycle time and Aging – Page 1/4' is not displayed on page");  
+		Assert.assertFalse(headerText.size()>0, "'Cycle time and Aging – Page 1/4' is not displayed on page");  
 		
 		//validate FAs Open -Aging
 		waitForElementPresent(By.xpath("//span[contains(text(),'FAs Open - Aging')]"));
