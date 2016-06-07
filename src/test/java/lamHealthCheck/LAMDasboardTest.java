@@ -90,12 +90,19 @@ public class LAMDasboardTest {
 	public void enterCredentialsInHTTPAuthentication(String username,String password) throws AWTException, InterruptedException{
 		Thread.sleep(2000);
 		Robot robot = new Robot();
-		
+		Thread.sleep(1000);
 		robot.keyPress(KeyEvent.VK_WINDOWS);
-		robot.keyPress(KeyEvent.VK_TAB);
-		Thread.sleep(100);
-		robot.keyRelease(KeyEvent.VK_TAB);
+		robot.keyPress(KeyEvent.VK_M);
+		Thread.sleep(300);
 		robot.keyRelease(KeyEvent.VK_WINDOWS);
+		robot.keyRelease(KeyEvent.VK_M);
+		Thread.sleep(300);
+		robot.keyPress(KeyEvent.VK_WINDOWS);
+		robot.keyPress(KeyEvent.VK_1);
+		Thread.sleep(300);
+		robot.keyRelease(KeyEvent.VK_WINDOWS);
+		robot.keyRelease(KeyEvent.VK_1);
+		
 		StringSelection selec= new StringSelection(username);
 		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 		clipboard.setContents(selec, null);
