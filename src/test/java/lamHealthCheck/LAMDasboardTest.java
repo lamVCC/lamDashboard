@@ -52,7 +52,7 @@ public class LAMDasboardTest {
 
 		try{
 			((JavascriptExecutor)driver).executeScript("window.focus()");
-			driver.get("https://qs.lamvcc.com/sense/app/08fddbfb-b99b-4d29-bb42-00b0c749035b/sheet/pmeC/state/analysis");
+			driver.get("https://qs.lamvcc.com/sense/app/c8d235df-fdba-49c9-9503-a478e61a8895/sheet/6e41e62c-f40e-423b-b9d7-de64e01c194c/state/analysis");
 			Thread.sleep(3000);
 			//((JavascriptExecutor)driver).executeScript("window.focus()");
 			enterCredentialsInHTTPAuthentication("vcc\\ms1", "Gspann123+");
@@ -62,20 +62,20 @@ public class LAMDasboardTest {
 		}
 
 		Thread.sleep(5000);
-		//validate 'Cycle time and Aging'-
-		waitForElementPresent(By.xpath("//span[contains(text(),'Cycle time and Aging – Page 1/4')]"));
+		//validate 'ÉHS Metrics-Lagging Performance'
+		waitForElementPresent(By.xpath("//span[contains(text(),'EHS Metrics - Lagging Performance')]"));
 		WebDriverWait wait = new WebDriverWait(driver, 15);
-		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//span[contains(text(),'Cycle time and Aging – Page 1/4')]"))));
+		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//span[contains(text(),'EHS Metrics - Lagging Performance')]"))));
 		Thread.sleep(3000);
-		List<WebElement> headerText= driver.findElements(By.xpath("//span[contains(text(),'Cycle time and Aging – Page 1/4')]"));
-		Assert.assertTrue(headerText.size()>0, "'Cycle time and Aging – Page 1/4' is not displayed on page");  
+		List<WebElement> headerText= driver.findElements(By.xpath("//span[contains(text(),'EHS Metrics - Lagging Performance')]"));
+		Assert.assertTrue(headerText.size()>0, "'EHS Metrics - Lagging Performance' is not displayed on page");  
 		
-		//validate FAs Open -Aging
-		waitForElementPresent(By.xpath("//span[contains(text(),'FAs Open - Aging')]"));
-		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//span[contains(text(),'FAs Open - Aging')]"))));
+		//validate Open CAPA -Aging
+		waitForElementPresent(By.xpath("//span[contains(text(),'Open CAPA Aging')]"));
+		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//span[contains(text(),'Open CAPA Aging')]"))));
 		Thread.sleep(3000);
-		List<WebElement> FAsOpenText= driver.findElements(By.xpath("//span[contains(text(),'FAs Open - Aging')]"));
-		Assert.assertTrue(FAsOpenText.size()>0, "'FAs Open - Aging' is not displayed on page");  
+		List<WebElement> OpenCAPAText= driver.findElements(By.xpath("//span[contains(text(),'Open CAPA Aging')]"));
+		Assert.assertTrue(OpenCAPAText.size()>0, "'Open CAPA Aging' is not displayed on page");  
 	}
 	@AfterMethod
 	public void afterTest(){
