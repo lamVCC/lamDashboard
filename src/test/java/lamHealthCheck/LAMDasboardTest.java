@@ -49,7 +49,7 @@ public class LAMDasboardTest {
 		//driver.manage().timeouts().pageLoadTimeout(2000, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		Thread.sleep(2000);
-		
+
 		try{
 			((JavascriptExecutor)driver).executeScript("window.focus()");
 			driver.get("https://lamvcc.com/Sites/Tahoe/BI/_layouts/15/KPIDashboard/KPIDashboard.aspx#/tileview");
@@ -60,15 +60,16 @@ public class LAMDasboardTest {
 			System.out.println("In catch");
 			enterCredentialsInHTTPAuthentication("vcc\\ms1", "Gspann123+");  
 		}
-		
+
 		Thread.sleep(5000);
+		//validate all tiles in dash-board displays properly?
 		waitForElementPresent(By.xpath("//section[@class='kpi-content-section']/div"));
 		WebDriverWait wait = new WebDriverWait(driver, 15);
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//section[@class='kpi-content-section']/div"))));
 		Thread.sleep(3500);
 		List<WebElement> allTiles= driver.findElements(By.xpath("//section[@class='kpi-content-section']/div"));
 		Assert.assertTrue(allTiles.size()==12, "Total no. of tiles present on UI are not 12");  
-		
+
 	}
 	@AfterMethod
 	public void afterTest(){
@@ -90,7 +91,7 @@ public class LAMDasboardTest {
 		Thread.sleep(300);
 		robot.keyRelease(KeyEvent.VK_WINDOWS);
 		robot.keyRelease(KeyEvent.VK_1);
-		
+
 		StringSelection selec= new StringSelection(username);
 		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 		clipboard.setContents(selec, null);
@@ -131,13 +132,6 @@ public class LAMDasboardTest {
 		}
 
 	}
-
-//	public static void takeScreenshot(WebDriver driver) throws IOException{
-//		System.out.println("Taking screenshot");
-//		File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-//		String fileName = "LAM_AUTOMATION_"+getDateTime();
-//		FileUtils.copyFile(file, new File(System.getProperty("user.dir")+"/"+fileName+".png"));
-//	}
 
 	/**
 	 * Returns current Date Time
