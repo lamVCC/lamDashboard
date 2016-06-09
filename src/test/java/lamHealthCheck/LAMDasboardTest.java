@@ -64,7 +64,7 @@ public class LAMDasboardTest {
 		}
 		
 		Thread.sleep(7000);
-		//wait for header element 'Opportunities to Improve'
+		//wait for header element 'Opportunities to Improve' and validate same
 		waitForElementPresent(By.xpath("//span[contains(text(),'Opportunities to Improve')]"));
 		WebDriverWait wait = new WebDriverWait(driver, 15);
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//span[contains(text(),'Opportunities to Improve')]"))));
@@ -72,7 +72,7 @@ public class LAMDasboardTest {
 		List<WebElement> headerText= driver.findElements(By.xpath("//span[contains(text(),'Opportunities to Improve')]"));
 		Assert.assertTrue(headerText.size()>0, "Header Text is not present");  
 		
-		//wait for 'Top Opportunities to improve over Last 3 Qvcc\ms1	Gspann123+uarters'
+		//wait for 'Top Opportunities to improve over Last 3 Q' and validate same
 		waitForElementPresent(By.xpath("//span[contains(text(),'Top Opportunities to improve over Last 3 Quarters')]"));
 	
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//span[contains(text(),'Top Opportunities to improve over Last 3 Quarters')]"))));
@@ -143,13 +143,6 @@ public class LAMDasboardTest {
 		}
 
 	}
-
-//	public static void takeScreenshot(WebDriver driver) throws IOException{
-//		System.out.println("Taking screenshot");
-//		File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-//		String fileName = "LAM_AUTOMATION_"+getDateTime();
-//		FileUtils.copyFile(file, new File(System.getProperty("user.dir")+"/"+fileName+".png"));
-//	}
 
 	/**
 	 * Returns current Date Time
