@@ -62,6 +62,7 @@ public class LAMDasboardTest {
 		}
 
 		Thread.sleep(5000);
+		//validate sections present in UI?
 		waitForElementPresent(By.xpath("//div[@class='row-head row-head-ipad']"));
 		WebDriverWait wait = new WebDriverWait(driver, 15);
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[@class='row-head row-head-ipad']"))));
@@ -131,13 +132,6 @@ public class LAMDasboardTest {
 		}
 
 	}
-
-	//	public static void takeScreenshot(WebDriver driver) throws IOException{
-	//		System.out.println("Taking screenshot");
-	//		File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-	//		String fileName = "LAM_AUTOMATION_"+getDateTime();
-	//		FileUtils.copyFile(file, new File(System.getProperty("user.dir")+"/"+fileName+".png"));
-	//	}
 
 	/**
 	 * Returns current Date Time
