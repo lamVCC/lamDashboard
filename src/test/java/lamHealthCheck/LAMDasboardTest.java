@@ -62,14 +62,14 @@ public class LAMDasboardTest {
 		}
 
 		Thread.sleep(5000);
-		//validate 'ÉHS Metrics-Lagging Performance'
+		//validate 'ÉHS Metrics-Lagging Performance'-
 		waitForElementPresent(By.xpath("//span[contains(text(),'EHS Metrics - Lagging Performance')]"));
 		WebDriverWait wait = new WebDriverWait(driver, 15);
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//span[contains(text(),'EHS Metrics - Lagging Performance')]"))));
 		Thread.sleep(3000);
 		List<WebElement> headerText= driver.findElements(By.xpath("//span[contains(text(),'EHS Metrics - Lagging Performance')]"));
 		Assert.assertTrue(headerText.size()>0, "'EHS Metrics - Lagging Performance' is not displayed on page");  
-		
+
 		//validate Open CAPA -Aging
 		waitForElementPresent(By.xpath("//span[contains(text(),'Open CAPA Aging')]"));
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//span[contains(text(),'Open CAPA Aging')]"))));
@@ -138,14 +138,6 @@ public class LAMDasboardTest {
 		}
 
 	}
-
-	//	public static void takeScreenshot(WebDriver driver) throws IOException{
-	//		System.out.println("Taking screenshot");
-	//		File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-	//		String fileName = "LAM_AUTOMATION_"+getDateTime();
-	//		FileUtils.copyFile(file, new File(System.getProperty("user.dir")+"/"+fileName+".png"));
-	//	}
-
 	/**
 	 * Returns current Date Time
 	 * 
