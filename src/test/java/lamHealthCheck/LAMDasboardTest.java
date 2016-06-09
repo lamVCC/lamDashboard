@@ -37,16 +37,6 @@ public class LAMDasboardTest {
 	public static WebDriver driver;
 	static String driverPath = "src/driver/IEDriverServer.exe";
 
-	@BeforeMethod
-	public void launchJenkins() {
-		String command = "java -jar jenkins.war"; 
-		try {
-			Process result = Runtime.getRuntime().exec(command);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
 	@Test
 	public void testLoginFieldValidation() throws AWTException, InterruptedException {
 		//driver=new FirefoxDriver();
@@ -73,6 +63,7 @@ public class LAMDasboardTest {
 		}
 
 		Thread.sleep(5000);
+		//validate buttons present on the bottom of the page?
 		waitForElementPresent(By.xpath("//div[@id='success-criteria-form']//footer/div[@class='foot-buttons']"));
 		WebDriverWait wait = new WebDriverWait(driver, 15);
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[@id='success-criteria-form']//footer/div[@class='foot-buttons']"))));
@@ -80,6 +71,7 @@ public class LAMDasboardTest {
 		List<WebElement> allButtons= driver.findElements(By.xpath("//div[@id='success-criteria-form']//footer/div[@class='foot-buttons']"));
 		Assert.assertTrue(allButtons.size()>0, "No buttons are currently present in UI");  
 
+		//validate header text?
 		waitForElementPresent(By.xpath("//div[@class='criteria-header']//div"));
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[@class='criteria-header']//div"))));
 		Thread.sleep(2000);
