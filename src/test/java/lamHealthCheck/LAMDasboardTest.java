@@ -138,14 +138,6 @@ public class LAMDasboardTest {
 		}
 
 	}
-
-	//	public static void takeScreenshot(WebDriver driver) throws IOException{
-	//		System.out.println("Taking screenshot");
-	//		File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-	//		String fileName = "LAM_AUTOMATION_"+getDateTime();
-	//		FileUtils.copyFile(file, new File(System.getProperty("user.dir")+"/"+fileName+".png"));
-	//	}
-
 	/**
 	 * Returns current Date Time
 	 * 
