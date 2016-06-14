@@ -56,10 +56,10 @@ public class LAMDasboardTest {
 			driver.get("https://lamvcc.com/sites/whitney/L2App/_layouts/15/vcclam.l2app/l2inputform.aspx");
 			Thread.sleep(3000);
 			//((JavascriptExecutor)driver).executeScript("window.focus()");
-			enterCredentialsInHTTPAuthentication("Svc_VCC2", "a5/4W!?.");
+			enterCredentialsInHTTPAuthentication("fremont\\Svc_VCC2", "a5/4W!?.");
 		}catch(Exception e){
 			System.out.println("In catch");
-			enterCredentialsInHTTPAuthentication("Svc_VCC2", "a5/4W!?.");  
+			enterCredentialsInHTTPAuthentication("fremont\\Svc_VCC2", "a5/4W!?.");  
 		}
 
 		Thread.sleep(5000);
